@@ -1,0 +1,574 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+    
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column ;
+    background-color: rgba(30, 39, 69, 1);
+    font-size: 40%;
+}
+
+
+/*BARRA NAVEGADORA*/
+nav{
+    height: 50px;
+    background-color: rgba(9, 15, 35, 1);
+    transition: all 0.4s ease;
+}
+
+
+.menu{
+    grid-area: head;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.logo{
+    width: 70px;
+    margin-left: 5px;
+    transition: all 0.4s ease;
+}
+
+li a{
+    color: rgba(191, 180, 180, 1);
+    font-weight: bolder;
+    font-size: 8px;
+    margin: 7px;
+}
+
+/* menu hamburguesa */
+input{
+    display: none;
+}
+
+input:checked ~ .menu-hamburguesa{
+    display: flex;
+
+}
+
+#burguer{
+    min-width: 35px;
+    min-height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor:pointer;
+    margin-right: 10px;
+}
+
+#burguer span{
+    border-radius: 5px;
+    background-color: rgba(73, 76, 78);
+    width: 100%;
+    height: 4px;
+    transition: all .5s ease-out;
+    margin-top: 5px;
+}
+
+#burguer.active .linea1{
+    opacity: 0;
+    width: 0;
+}
+
+#burguer.active .linea2{
+    transform:translateY(4.5px) rotate(45deg);
+}
+
+#burguer.active .linea3{
+    transform:translateY(-4px) rotate(-45deg);
+}
+
+.menu-hamburguesa{
+    background-color: rgba(61, 71, 105, 1);
+    width: 25%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 21;
+    margin-top: 70px;
+    align-self: flex-end;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid rgba(241, 233, 233, 1);
+    animation-name: aparecen;
+    animation-duration: 1s;
+}
+
+@keyframes aparecen {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+.menu-hamburguesa .opciones h1{
+    color: rgba(241, 233, 233, 1);
+    font-size: 15px;
+    margin-top: 8%;
+}
+
+.redesIcons{
+    width: 100%;
+    animation-name: aparecen;
+    animation-duration: 1.5s;
+}
+
+/*content*/
+.game-box{
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gaming-zone{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10%;
+    background-color: rgba(61, 71, 105, 1);
+}
+
+.portada{
+    height: 330px;
+    width: 330px;
+}
+
+.breadcrumb{
+    display: flex;
+    font-size: 8px;
+    align-self: flex-start;
+    margin-bottom: 3px;
+    margin-left: 12px;
+}
+
+p a{
+    color: rgba(95, 91, 91, 1);
+}
+
+.game-nav{
+    display: flex;
+    margin-top: 2px;
+    width: 330px;
+    justify-content: space-between;
+    color: rgba(241, 233, 233, 1);
+}
+
+.game-nav p{
+    font-size: 20px;
+}
+
+.botones-gamenav, .title-comments img, .last-comments img{
+    display: flex;
+    height: 20px;
+}
+
+.info-box{
+    margin-top: 40px;
+    width: 330px;
+    color: rgba(241, 233, 233, 1);
+}
+
+.info-box h2, .title-comments h2, .last-comments h2{
+    font-size: 13px;
+}
+
+.info-box p{
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.info-box img{
+    height: 150px;
+    width: 200px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.instrucciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.title-comments img, .last-comments img{
+    margin-right: 10px;
+}
+
+.title-comments{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: rgba(146, 140, 140, 1);
+    border-bottom: 2px solid rgba(146, 140, 140, 1);
+    border-radius: 5px;
+}
+
+.last-comments{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: rgba(146, 140, 140, 1);
+}
+
+.last-comments h2{
+    padding-bottom:3px ;
+}
+
+.input-comment{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border: 2px solid rgba(146, 140, 140, 1);
+    border-radius: 4px;
+    background-color: rgba(241, 233, 233, 1);
+}
+
+.input-comment h1{
+    color: rgba(9, 15, 35, 1);
+} 
+
+.input-header{
+    border-bottom: 2px solid rgba(146, 140, 140, 1);
+    padding: 5px;
+}
+
+.input-body{
+    padding: 5px;
+    color: rgba(9, 15, 35, 0.6);
+}
+.input-body2{
+    padding: 5px;
+    color: rgba(9, 15, 35, 1);
+}
+
+/* footer */
+.footer{
+    grid-area: foot;
+    display: grid;
+    grid-template-areas:'logoFooter columnaTienda columnaCategoria columnaNosotros columnaFinal';       
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: rgba(9, 15, 35, 1);
+}
+
+
+
+.columnaTienda ul li, .columnaNosotros ul li, .columnaCategoria ul li{
+    color:rgba(241, 233, 233, 1) ;
+    margin-top: 5%;
+
+}
+.columnaTienda{
+    grid-area: columnaTienda;
+}
+
+.columnaCategoria{
+    grid-area: columnaCategoria;
+}
+
+.columnaNosotros{
+    grid-area: columnaNosotros;
+}
+
+.columnaRedes{
+    grid-area: columnaFinal;
+
+}
+.footer div{
+    margin-top: 15%;
+}
+
+.logoFooter{
+    grid-area: logoFooter;
+
+}
+
+.columnaRedes ul{
+    margin-top: 5%;
+}
+div .columnaRedes ul li img{
+    width: 20%;
+}
+
+
+.logoFooter img{
+    width: 100%;
+}
+
+canvas{
+    background-color: gainsboro;
+}
+
+label{
+    color: bisque;
+}
+
+
+/* responsive */
+@media only screen and (min-width:400px){
+
+    .contenedor{
+        font-size: 50%;
+    }
+
+    nav, .menu{
+        height: 60px;
+    }
+    
+    .logo{
+        width: 70px;
+        margin-left: 5px;
+    }
+
+    .game-nav, .info-box{
+        width: 370px;
+    }
+
+    .menu-hambur{
+        height: 25px;
+        width: 35px;
+        margin-right: 10px;
+    }
+    
+    li a, p a{
+        font-size: 10px;
+    }
+
+    .portada{
+        height: 360px;
+        width: 370px;
+    }
+    .breadcrumb{
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (min-width:600px){
+    .contenedor{
+        grid-template-rows:1fr 18fr 2fr;
+    }
+    
+    .portada{
+        height: 450px;
+        width:450px;
+    }
+    .game-nav, .info-box{
+        width: 450px;
+    }
+
+    .gaming-zone{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .botones-gamenav, .title-comments img,.last-comments img{
+        height: 30px;
+    }
+    .game-nav p{
+        font-size: 30px;
+    }
+    .breadcrumb{
+        margin-left: 30px;
+    }
+    .info-box h2, .title-comments h2, .last-comments h2{
+        font-size: 20px;
+    }
+    
+    .info-box p{
+        font-size: 15px;
+    }
+    .info-box img{
+        height: 200px;
+        width: 250px;
+    }
+    .title-comments, .last-comments h2{
+        margin-top: 25px;
+    }
+    .last-comments h2{
+        padding-bottom:15px ;
+    }
+
+}
+
+@media only screen and (min-width:900px){
+
+    /* JUEGO */
+    .oculto{
+        display: none;
+    }
+    .bloque{
+        display: flex;
+    }
+    .visible{
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .visible h1{
+        margin-left: 10px;
+    }
+    .opciones{
+        display: flex;    
+        flex-direction: row;
+    }
+
+    select, .botonJugar{
+        border-radius: 5px;
+    }
+
+
+    label{
+        align-content: center;
+        margin-left: 20px;
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+    select{
+        height: 30px;        
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+    .botonJugar{
+        margin-left: 20px;
+        cursor: pointer;
+        width: 50px;
+        height: 30px;
+    }
+
+
+
+    .contenedor{
+        grid-template-rows:1fr 25fr 2fr;
+        font-size: 70%;
+    }
+
+    li a, p a{
+        font-size: 15px;
+    }
+    
+    .logo{
+        height: 100px;
+        width: 100px;
+        margin-left: 5px;
+    }
+    
+    .menu-hambur{
+        height: 35px;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    nav, .menu{
+        height: 70px;
+    }
+
+    .sticky{
+        position: fixed;
+        top: 0;
+        height: 60px;
+        z-index: 20;
+        width: 100%;
+    }
+    
+    .stickyLogo{
+        width: 90px;
+        height: 90px;
+    }
+    
+
+    .portada{
+        height: 620px;
+        width:720px;
+    }
+    .game-nav, .info-box{
+        width: 720px;
+    }
+    .breadcrumb{
+        margin-bottom: 10px;
+        margin-left: 60px;
+    }
+    .info-box h2, .title-comments h2, .last-comments h2{
+        font-size: 25px;
+    }
+    
+    .info-box p{
+        font-size: 20px;
+        line-height: 25px;
+    }
+    .info-box img{
+        height: 230px;
+        width: 280px;
+    }
+    .title-comments, .last-comments h2{
+        margin-top: 30px;
+    }
+    .last-comments h2{
+        padding-bottom:25px ;
+    }
+    .input-comment{
+        width: 450px;
+    }
+}
+
+@media only screen and (min-width:1400px){
+    .contenedor{
+        grid-template-rows:1fr 18fr 2fr;
+    }
+    .portada{
+        height: 700px;
+        width:1040px;
+    }
+    .game-nav, .info-box{
+        width: 1040px;
+    }
+    .gaming-zone{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .botones-gamenav, .title-comments img, .last-comments img{
+        height: 40px;
+    }
+    .game-nav p{
+        font-size: 40px;
+    }
+    .breadcrumb{
+        margin-left: 120px;
+    }
+    .breadcrumb p a{
+        font-size:20px;
+    }
+    .info-box img{
+        height: 260px;
+        width: 310px;
+    }
+    .title-comments, .last-comments{
+        margin-top: 35px;
+    }
+    .input-comment{
+        width: 480px;
+    }
+}

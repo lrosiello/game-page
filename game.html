@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let´s Play!</title>
+    <link rel="stylesheet" href="css/style-game.css">
+</head>
+<body>
+    
+    <div class="contenedor">
+        <nav class="header">
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="index.html"><img href="index.html" class="logo" src="img/logo.png" alt="Imagen del logo"></a>
+                </li>
+                <li class="menu-item">
+                    <a href="index.html">Tienda</a>
+                    <a href="index.html">Categorias</a>
+                    <a href="release2.html">Proximo lanzamiento</a>
+                </li>
+                <label for="menu" id ="menu-hambur-label" class="menu-hambur-label">
+                    <div id="burguer">
+                        <span class="linea1"></span>
+                        <span class="linea2"></span>
+                        <span class="linea3"></span>
+                    </div>
+                </label>
+                
+            </ul>
+        </nav>
+        <input type="checkbox" id="menu">
+        <div class="menu-hamburguesa">
+            <div class="opciones">  
+                <h1>Ver perfil</h1>
+                <h1>Configuracion</h1>
+                <h1>Mi catalogo</h1>
+                <h1>Comunidad</h1>
+                <h1>Cerrar sesion</h1>
+            </div>  
+            <img class="redesIcons" src="img/redes.png" alt="iconos redes">
+        </div>
+
+        <div class="game-box">
+            <div class="breadcrumb">
+                <p><a href="index.html">Pagina principal  > </a></p> 
+                <p><a href="game.html"> 4 en linea</a></p>
+            </div>
+            <div class="gaming-zone">
+                <div id="barraOpciones" class="barraOpciones">
+
+                    <div id="opciones" class="visible">
+                        <label for="">Seleccione el tipo de juego</label>
+                        <div class="content-select">
+                            <select id="selectJuego" name="selectJuego">
+                                <option value="3">3 en 1</option>
+                                <option value="4" selected>4 en 1</option>
+                                <option value="5">5 en 1</option>
+                                <option value="6">6 en 1</option>
+                            </select>
+                        </div>
+                        <label for="">Seleccione la rivalidad</label>
+                        <div class="content-select">
+                            <select id="selectRivales" name="selectRivales">
+                                <option value="plantas">Plantas vs Zombies</option>
+                                <option value="girasoles">Girasoles vs Soldados</option>
+                            </select>
+                        </div>
+                        <button class="botonJugar" id="jugar">Jugar</button>
+                    </div>
+        
+                    <div class="oculto" id="jugando">
+                        <button class="botonJugar" id="reiniciar">Reiniciar</button>
+
+                        <h1 class="time">Tiempo:</h1>
+                        <div class="bloque">
+                            <h1 id="minutestxt"></h1><h1>:</h1><h1 id="secondstxt"></h1>
+                        </div>
+                        <h1>Turno: <h1 id="mostrarTurno"></h1> </h1>
+                    </div>
+                </div>
+        
+                <div class="portada">
+                    <canvas id="canvas" width="1080" height="700"></canvas>
+                </div>
+                <div class="game-nav">
+                    <p>4 en linea</p>
+                    <div class="botones-gamenav">
+                        <img src="img/information-svgrepo-com.svg" alt="info de juego">
+                        <img src="img/share-svgrepo-com.svg" alt="compartir">
+                        <img src="img/comment-svgrepo-com.svg" alt="hacer comentario">
+                        <img src="img/like-svgrepo-com.svg" alt="me gusta">
+                        <img src="img/dislike-svgrepo-com.svg" alt="no me gusta">
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="instrucciones">
+                        <h2>Instrucciones:</h2>
+                        <p> El juego 4 en línea, también conocido como 4 en raya o conecta 4, es un juego de mesa tradicional, cuyo objetivo es poner en línea cuatro fichas del mismo color, ya sea en vertical, diagonal u horizontal. El jugador que consiga poner 4 fichas en línea gana la partida. Por eso, no solamente tienes que preocuparte de tus movimientos, sino que tendrás que evitar que tu contrincante te gane.
+                            El juego se juega entre dos jugadores. Puedes jugar contra el ordenador o contra un amigo.
+                            Puedes elegir entre 8 idiomas, incluido el español y puedes seleccionar entre 4 niveles de dificultad, para adaptar el juego a tu edad o tu habilidad.
+                        </p>
+                        <img class="imagen-ejemplo" src="img/plantasvszombie.jpg" alt="plantasvszombie juego">   
+                    </div>
+                    <div class="comojugar">
+                        <h2>Como se juega:</h2>
+                        <p>El juego 4 en línea, también conocido como 4 en raya o conecta 4, es un juego de mesa tradicional, cuyo objetivo es poner en línea cuatro fichas del mismo color, ya sea en vertical, diagonal u horizontal. El jugador que consiga poner 4 fichas en línea gana la partida. Por eso, no solamente tienes que preocuparte de tus movimientos, sino que tendrás que evitar que tu contrincante te gane.
+                            El juego se juega entre dos jugadores. Puedes jugar contra el ordenador o contra un amigo.
+                            Puedes elegir entre 8 idiomas, incluido el español y puedes seleccionar entre 4 niveles de dificultad, para adaptar el juego a tu edad o tu habilidad.
+                        </p>
+                    </div>                     
+                </div> 
+                <div class="comments-box">
+                    <div class="title-comments">
+                        <img src="img/comment-svgrepo-com.svg" alt="hacer comentario">
+                        <h2>Comentarios</h2>
+                    </div>
+                    <div class="input-comment">
+                        <div class="input-header">
+                            <h1>Tú</h1>
+                        </div>
+                        <div class="input-body">
+                            <h2>¿Qué piensas de este juego?</h2>
+                        </div>
+                    </div>
+                    <div class="last-comments">
+                        <img src="img/clock-svgrepo-com.svg" alt="reloj icono">
+                        <h2>Ultimos comentarios</h2>
+                    </div>
+                    <div class="input-comment">
+                        <div class="input-header">
+                            <h1>Pepitogamer223</h1>
+                        </div>
+                        <div class="input-body2">
+                            <h2>Buen juego! Me encanto!</h2>
+                        </div>
+                    </div>
+                    <div class="input-comment">
+                        <div class="input-header">
+                            <h1>Dalebo12</h1>
+                        </div>
+                        <div class="input-body2">
+                            <h2>Podria ser mejor, pero nada mal</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="logoFooter">
+                <a href="index.html"><img href="index.html" src="img/logo.png" alt=""></a>
+            </div>
+            <div class="columnaTienda">
+                <ul>
+                    <li><h2 href="index.html">Tienda</h2></li>
+                    <li><h3>Nuevas ofertas</h3></li>
+                    <li><h3>Lo mas vendido</h3></li>
+                    <li><h3>A menos de 100 pesos</h3></li>
+                    <li><h3>Actualizados</h3></li>
+                </ul>
+            </div>
+            <div class="columnaCategoria">
+                <ul>
+                    <li><h2>Categorias</h2></li>
+                    <li><h3>Recomendados</h3></li>
+                    <li><h3>Gratis</h3></li>
+                    <li><h3>Accion</h3></li>
+                    <li><h3>Aventuras</h3></li>
+                    <li><h3>Deportes</h3></li>
+                    <li><h3>Simulacion</h3></li>
+                    <li><h3>Estrategia</h3></li>
+                </ul>
+            </div>
+            <div class="columnaNosotros">
+                <ul>
+                    <li><h2>Nosotros</h2></li>
+                    <li><h3>Quienes somos?</li>
+                    <li><h3>Contacto</h3></li>
+                    <li><h3>Foros</h3></li>
+                </ul>
+            </div>
+            <div class="columnaRedes">
+                <ul>
+                    <li><img src="img/facebook-svgrepo-com.svg" alt="icono facebook"></li>
+                    <li><img src="img/instagram-svgrepo-com.svg" alt="icono instagram"></li>
+                    <li><img src="img/twitter-svgrepo-com.svg" alt="icono twitter"></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+<script src="js/4enlinea.js"></script>
+<script src="js/Tablero.js"></script>
+<script src="js/Square.js"></script>
+<script src="js/EntrySquare.js"></script>
+<script src="js/RegularSquare.js"></script>
+<script src="js/Ficha.js"></script>
+<!--ANIMACIONES-->
+<script src="js/animations.js"></script>
+</body>
+</html>

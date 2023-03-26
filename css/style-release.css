@@ -1,0 +1,345 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+    
+}
+
+
+
+.contenedor{
+    display: grid;
+    grid-template-areas:"head"
+                        "content"
+                        "foot";
+    grid-template-rows: 1fr 15fr 2fr;
+    background-color: rgba(67, 28, 23, 1);
+    font-size: 40%;
+    max-width: auto;
+    
+    overflow: hidden;
+}
+
+
+/*BARRA NAVEGADORA*/
+nav{
+    height: 50px;
+    background-color:  rgba(67, 28, 23, 1);
+}
+
+.menu{
+    grid-area: head;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 70px;
+    margin-left: 5px;
+}
+
+.menu-hambur{
+    height: 20px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+li a{
+    color: rgba(191, 180, 180, 1);
+    font-weight: bolder;
+    font-size: 8px;
+    margin: 7px;
+}
+
+.menu-hambur-label .menu-hambur{
+    opacity: 1;
+    animation: hamburgTransition 1s ease .8s forwards;
+    position: absolute;
+}
+
+.menu-hambur-label .menu-cross{
+    opacity: 0;
+    position: absolute;
+    animation: crossAppear 1s ease .8s forwards;
+}
+
+@keyframes hamburgTransition{
+    0%{
+        opacity: 0.7;
+        transform: rotate(0deg);
+    }
+    50%{
+        opacity: 0.2;
+        transform: rotate(120deg);
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(380deg);
+    }
+}
+
+@keyframes crossAppear{
+    0%{
+        opacity: 0.2;
+        transform: rotate (0deg);
+    }
+    50%{
+        opacity: 0.7;
+        transform: rotate(-120deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(-180deg);
+    }
+}
+
+/* footer */
+.footer{
+    grid-area: foot;
+    background-color:  rgba(67, 28, 23, 1);
+}
+
+
+
+
+/* environment 1 */
+
+.environment{
+    grid-area: "content";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  
+}
+
+.environment>section{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    
+}
+
+.doomTitle{
+    background-image: url(../img/release-back.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: left;
+    height: 1500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shadow + section{
+    background-image: url("../img/release-back.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: left;
+    width: 100%;
+    max-width: 100%;
+    height: 5000px;
+}
+
+
+
+.shadow{
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: black;
+    box-shadow: 0 0 100px 100px;
+    z-index: 5;
+}
+
+
+
+
+
+
+/* carruseles */
+.carruseles, .carrusel{
+    grid-area: content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.carrusel{
+    width: 80%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+
+
+/*  carrusel    */
+.carrusel>p,h1 {
+    align-self: flex-start;
+    font-size: 2em;
+    color: rgba(191, 180, 180, 1);
+}
+
+.carrusel .imgs-carrusel{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height:auto;
+    overflow-y:auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+.imgs-carrusel  .hero-back{
+    background-image: url(../img/hero-back.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: auto;
+}
+
+.hero-back  img{
+    height:100%;
+    width: 50%;
+    max-width: 40%;
+    max-height: 70%;
+    margin-right: 3%;
+    display: block;
+}
+
+.doomguyImage{
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    height: auto;
+    width: 60%;
+    display: block;
+    z-index: 3;
+    object-fit: cover;
+}
+
+.doomTitle .titleImage{
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    align-self: center;
+    justify-self: flex-start;
+    max-width: 70%;
+    max-height: 50%;
+    display: block;
+    z-index: 2;
+}
+
+.doomTitle h1{
+    font-size: 500%;
+}
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+@media only screen and (min-width:400px){
+
+    .contenedor{
+        grid-template-rows:1fr 18fr 2fr;
+    }
+    nav, .menu{
+        height: 60px;
+    }
+    
+    .logo{
+        width: 70px;
+        margin-left: 5px;
+    }
+    
+    .menu-hambur{
+        height: 25px;
+        width: 35px;
+        margin-right: 10px;
+    }
+    
+    /* content */
+    .carrusel{
+        width: 80%;
+        height: 100%;
+        margin-bottom: 20px;
+    }
+    
+
+    li a{
+        font-size: 10px;
+    }
+    
+}
+
+
+
+@media only screen and (min-width:900px){
+    .contenedor{
+        grid-template-rows:2fr  25fr 2fr;
+        font-size: 70%;
+    }
+
+
+    li a, p a{
+        font-size: 15px;
+    }
+    
+    .logo{
+        height: 100px;
+        width: 100px;
+        margin-left: 5px;
+    }
+    
+    .menu-hambur{
+        height: 35px;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    nav, .menu{
+        height: 70px;
+    }
+
+    
+    /* content */
+    .carrusel{
+        width: 80%;
+        height: 100%;
+        margin-bottom: 20px;
+    }
+    
+}
+
+
+@media only screen and (min-width:1400px){
+    .contenedor{
+        grid-template-rows:2fr 38fr 4fr;
+    }
+ 
+ 
+
+
+
+}
+

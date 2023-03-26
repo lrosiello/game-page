@@ -1,0 +1,836 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+
+/*loader*/
+.loader{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(9, 15, 35, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    clip-path: circle(150% at 100% 0);
+    transition: clip-path 0.8s ease-in-out;
+}
+
+.loader2{
+    clip-path: circle(0% at 100% 0);
+}
+
+.porcentaje{
+    color: rgba(191, 180, 180, 1);
+    margin-bottom: 15px;
+}
+
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  /*contenido*/
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(30, 39, 69, 1);
+    font-size: 40%;
+}
+
+
+/*BARRA NAVEGADORA*/
+nav{
+    height: 50px;
+    background-color: rgba(9, 15, 35, 1);
+    transition: all 0.4s ease;
+
+}
+
+.menu{
+    grid-area: head;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    height: 40px;
+    z-index: 20;
+    width: 100%;
+}
+
+.stickyLogo{
+    width: 60px;
+}
+
+.logo{
+    width: 70px;
+    margin-left: 5px;
+    transition: all 0.4s ease;
+}
+
+.menu-hambur{
+    height: 20px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+li a{
+    color: rgba(191, 180, 180, 1);
+    font-weight: bolder;
+    font-size: 8px;
+    margin: 7px;
+}
+
+/* menu hamburguesa */
+input{
+    display: none;
+}
+
+input:checked ~ .menu-hamburguesa{
+    display: flex;
+
+}
+
+#burguer{
+    min-width: 35px;
+    min-height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor:pointer;
+    margin-right: 10px;
+}
+
+#burguer span{
+    border-radius: 5px;
+    background-color: rgba(73, 76, 78);
+    width: 100%;
+    height: 4px;
+    transition: all .5s ease-out;
+    margin-top: 5px;
+}
+
+#burguer.active .linea1{
+    opacity: 0;
+    width: 0;
+}
+
+#burguer.active .linea2{
+    transform:translateY(4.5px) rotate(45deg);
+}
+
+#burguer.active .linea3{
+    transform:translateY(-4px) rotate(-45deg);
+}
+
+.menu-hamburguesa{
+    background-color: rgba(61, 71, 105, 1);
+    width: 75%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 21;
+    margin-top: 50px;
+    align-self: flex-end;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid rgba(241, 233, 233, 1);
+    animation-name: aparecen;
+    animation-duration: 1s;
+}
+
+@keyframes aparecen {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+.menu-hamburguesa .opciones h1{
+    color: rgba(241, 233, 233, 1);
+    font-size: 15px;
+    margin-top: 8%;
+}
+
+.redesIcons{
+    width: 100%;
+    animation-name: aparecen;
+    animation-duration: 1.5s;
+}
+
+
+/* carrusel main */
+.title{
+    grid-area: title;
+    padding-left: 10%;
+    color: rgba(241, 233, 233, 1);
+    margin-top: 5%;
+}
+.carruselMain{
+    grid-area: content1;
+    height: 220px;
+    overflow: hidden;
+    
+}
+.itemCarrusel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.tarjetaCarrusel{
+    display: flex;
+    width: 90%;
+    height: 100%;
+    background-color: rgba(61, 71, 105, 1);
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.imagenPrincipal{
+    width:65%;
+}
+
+.imagenPrincipal img{
+    width:97%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.miniFotosCarrusel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+    margin-right: 2%;
+}
+
+.miniFotosCarrusel .filaCuadrado1, .miniFotosCarrusel .filaCuadrado2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filaCuadrado1 img, .filaCuadrado2 img{
+    width: 97%;
+    height: 48%;
+    object-fit: cover;
+}
+
+.miniFotosCarrusel h1{
+    padding: 5%;
+    color: rgba(241, 233, 233, 1);
+}
+
+.cuadradoImagenes{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonesTarjeta{
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.botonesTarjeta h1{
+    color: rgba(241, 233, 233, 1);
+}
+
+.botonesTarjeta .btnJugar{
+    width: 50%;
+    border-radius: 5%;
+    padding: 3%;
+    background-color: rgba(93, 178, 112, 1);
+    z-index: 20;
+}
+
+.botonesTarjeta .btnJugar a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.flechasCarrusel{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;  
+}
+
+.flechasCarrusel a{
+    display: flex;
+    
+}
+.flechaI, .flechaD{
+    width: 10%;
+}
+.flechaD{
+    margin-left: 90%;
+}
+
+
+/* carruseles */
+
+.carruseles{
+    grid-area: content2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+.carrusel{
+    margin-top: 20%;
+    width: 350px;
+    height: 190px;
+    justify-self: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.cards{
+    width: 400%;
+    height:90%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    transition: all .2s ease;
+    transform: translateX(0%);
+}
+
+.card{
+    width: calc(100%/8);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(61, 71, 105, 1);
+    margin-left:  1%;
+    margin-right: 1%;
+}
+
+
+.card img{
+    width: 100%;
+    height: 85%;
+}
+
+#oferta img{
+    width: 100%;
+    height: 80%;
+}
+
+.card h2{
+    color: rgba(241, 233, 233, 1);
+}
+
+.pieCardOferta h2{
+    color: rgba(241, 233, 233, 1);
+    position: absolute;
+    bottom: 20%;
+    background-color:rgba(10, 10, 12, 0.5);
+    width: 10.5%;
+}
+
+.box-oferta{
+    background-color:rgba(56, 154, 212, 1) ;
+    display: flex;
+    height: 20%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.porcentajeOferta{
+    background-color: rgba(93, 178, 112, 1);
+    height: 60%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.porcentajeOferta h2{
+    color: rgba(212, 222, 214, 1);
+}
+
+.precioOferta{
+    display: flex;
+    background-color: rgba(5, 75, 117, 1);
+    height: 60%;
+    width: 45%;
+    justify-content: space-between;
+}
+
+.precioOferta .antes{
+    text-decoration-line: line-through;
+    color: rgba(191, 180, 180, 1);
+}
+
+.precioOferta .ahora{
+    color: rgba(157, 199, 166, 1);
+    align-self: flex-end;
+}
+
+
+.carrusel button{
+    color: rgba(241, 233, 233, 1);
+    top: 45%;
+    background-color: rgba(61, 71, 105, 1);
+    width: 10%;
+    height: 20%;
+    border-radius: 90%;
+    position: absolute;
+    z-index: 2;
+}
+
+.tituloCard{
+    position: relative;
+    left: 3%;
+    margin-bottom: 2%;
+    color:rgba(241, 233, 233, 1);
+}
+.btn-izquierda{
+    right:90%;
+}
+
+.btn-derecha{
+    left:90%;
+}
+
+/* footer */
+.footer{
+    display: grid;
+    grid-template-areas:'logoFooter columnaTienda columnaCategoria columnaNosotros columnaFinal';       
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: rgba(9, 15, 35, 1);
+}
+
+
+
+.columnaTienda ul li, .columnaNosotros ul li, .columnaCategoria ul li{
+    color:rgba(241, 233, 233, 1) ;
+    margin-top: 5%;
+
+}
+.columnaTienda{
+    grid-area: columnaTienda;
+}
+
+.columnaCategoria{
+    grid-area: columnaCategoria;
+}
+
+.columnaNosotros{
+    grid-area: columnaNosotros;
+}
+
+.columnaRedes{
+    grid-area: columnaFinal;
+
+}
+.footer div{
+    margin-top: 15%;
+}
+
+.logoFooter{
+    grid-area: logoFooter;
+
+}
+
+.columnaRedes ul{
+    margin-top: 5%;
+}
+div .columnaRedes ul li img{
+    width: 20%;
+}
+
+
+.logoFooter img{
+    width: 100%;
+}
+
+
+
+
+/* responsive */
+@media only screen and (min-width:400px){
+
+    .contenedor{
+        font-size: 50%;
+        grid-template-rows: 1fr 0.4fr 3fr 5fr 5fr 5fr 2fr;
+    }
+    nav, .menu{
+        height: 60px;
+        
+    }
+    .menu-hamburguesa{
+        width: 75%;
+        margin-top: 60px;
+    }
+    
+    .logo{
+        width: 70px;
+        margin-left: 5px;
+    }
+    
+    .menu-hambur{
+        height: 25px;
+        width: 35px;
+        margin-right: 10px;
+    }
+        
+
+    li a{
+        font-size: 10px;
+    }
+
+    .carruselMain{
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    
+    .carrusel{        
+        height: 250px;
+    }
+}
+
+
+@media only screen and (min-width:600px){
+    .carruselMain{
+        height: 260px;
+        margin-bottom: 15px;
+    }
+
+    .tarjetaCarrusel{
+        width: 80%;
+    }
+    .flechasCarrusel{
+        width: 105%;
+    }
+    .carrusel{        
+        height: 280px;
+        width: 70%;
+    }
+    .menu-hamburguesa{
+        width: 50%;
+
+    }
+}
+
+
+
+@media only screen and (min-width:900px){
+    .contenedor{
+        font-size: 70%;
+    }
+
+    li a{
+        font-size: 15px;
+    }
+    
+    .logo{
+        height: 100px;
+        width: 100px;
+        margin-left: 5px;
+    }
+
+    .sticky{
+        position: fixed;
+        top: 0;
+        height: 60px;
+        z-index: 20;
+        width: 100%;
+    }
+    
+    .stickyLogo{
+        width: 90px;
+        height: 90px;
+    }
+    
+    .menu-hambur{
+        height: 35px;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    nav, .menu{
+        height: 70px;
+    }
+
+    .menu-hamburguesa{
+        margin-top: 70px;
+    }
+    
+    
+    /* content */
+
+    .carruselMain{
+        height: 300px;
+    }
+
+    .tarjetaCarrusel{
+        width: 70%;
+    }
+    .title{
+        padding-left: 15%;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 40%;
+    }
+
+    .btnJugar p{
+        font-size: 110%;
+    }
+
+    .carrusel{
+        width: 90%;
+        height: 300px;
+    }
+
+    .cards{
+        width: 200%;
+        height:88%;
+    }
+
+    .card{
+        width: calc(100%/8);
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    .carrusel button{
+        top: 45%;
+        width: 5%;
+        height: 15%;
+    }
+
+    .btn-izquierda{
+        right:95%;
+    }
+    
+    .btn-derecha{
+        left:95%;
+    }
+    
+    
+}
+
+@media only screen and (min-width:1100px){
+    .contenedor{
+        grid-template-rows: 0.5fr 0.3fr 2fr 3fr 3fr 1fr 1fr;
+        background-color: rgba(30, 39, 69, 1);
+    }
+    .carruselMain{
+        height: 350px;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 35%;
+    }
+
+    .btnJugar p{
+        font-size: 120%;
+    }
+    .carrusel{
+        margin-top: 15%;
+        width: 75%;
+    }
+    .menu-hamburguesa{
+        width: 35%;
+
+    }
+
+}
+
+@media only screen and (min-width:1400px){
+    .contenedor{
+        grid-template-rows: 0.5fr 0.3fr 2fr 2fr 3fr 3fr 2fr;
+        background-color: rgba(30, 39, 69, 1);
+    }
+    
+    .carruselMain{
+        height: 400px;
+        margin-bottom: 30px;
+    }
+
+    .flechasCarrusel{
+        width: 110%;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 30%;
+    }
+
+    .btnJugar p{
+        font-size: 130%;
+    }
+
+    .carrusel{
+        margin-top: 10%;
+        width: 75%;
+    }
+
+    .cards{
+        height:85%;
+    }
+    .menu-hamburguesa{
+        width: 25%;
+
+    }
+}
+
+@media only screen and (min-width:1600px){
+    .contenedor{
+        font-size: 80%;
+    }
+
+    .carruselMain{
+        height: 450px;
+    }
+
+    .flechasCarrusel{
+        width: 115%;
+    }
+
+    .botonesTarjeta .btnJugar{
+        width: 25%;
+    }
+
+    .tarjetaCarrusel{
+        width: 65%;
+    }
+
+    .btnJugar p{
+        font-size: 140%;
+    }
+
+    .carrusel{
+        margin-top: 10%;
+        height: 350px;
+        width: 65%;
+    }
+
+    .cards{
+        height:80%;
+    }
+
+
+}

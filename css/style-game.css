@@ -326,6 +326,7 @@ label{
 
 /* responsive */
 @media only screen and (min-width:400px){
+    
 
     .contenedor{
         font-size: 50%;

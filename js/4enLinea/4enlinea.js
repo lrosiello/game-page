@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     /** @type {CanvasRenderingContext2D} */
     let ctx = canvas.getContext('2d');
     let board = new Tablero(canvas, 0, 0, null);
-    let fichas = [];
     let fichasJ1 = [];
     let fichasJ2 = [];
     let isMouseDown = false;
@@ -47,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //EVENTO CLICK PARA SELECCIONAR FICHA
     /////////////////////////////////////////////////////////////////////////////////////////////////
     function mouseDown(event) {
-        let x = event.clientX - canvas.offsetLeft;//TOMA COORDENADAS
-        let y = event.clientY - canvas.offsetTop;
+        let x = event.pageX - canvas.offsetLeft;//TOMA COORDENADAS
+        let y = event.pageY - canvas.offsetTop;
         isMouseDown = true;
         fichaSelection(fichasJ1, x, y, "j1");
         fichaSelection(fichasJ2, x, y, "j2");
@@ -66,6 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     fichaSelected[0].setSelected(true);
                 }else{
                     alert("Es turno del otro jugador");
+                    fichaSelected = [];                           //LIMPIO ARREGLO CADA VEZ QUE SELECCIONO
+                    fichaSelected.push(ficha);
+                    fichaSelected[0].setSelected(false);
                 }
             } else {
                 ficha.setSelected(false);
@@ -77,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
  //EVENTO MOVE PARA MOVER FICHAS
 /////////////////////////////////////////////////////////////////////////////////////
     function mouseMove(event) {
-        let x = event.clientX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
-        let y = event.clientY - canvas.offsetTop;
+        let x = event.pageX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
+        let y = event.pageY - canvas.offsetTop;
         let fichaSelected = [];                               //ARREGLO AUXILIAR
         fichaSelected.length = 1;                             //EL ARREGLO LIMITADO A 1 DE TAMANIO
         fichasJ1.forEach(ficha => {
@@ -102,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
  //EVENTO SOLTAR CLICK PARA SOLTAR FICHA Y COMENZAR A LLENAR LAS COLUMNAS Y DIBUJAR CASILLAS LLENAS
 ///////////////////////////////////////////////////////////////////////////////
     function mouseUp(event) {
-        let x = event.clientX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
-        let y = event.clientY - canvas.offsetTop;
+        let x = event.pageX - canvas.offsetLeft; //TOMA UBICACION DEL MOUSE
+        let y = event.pageY - canvas.offsetTop;
         isMouseDown = false;
         let check = entrySelected(x, y);             //CHEQUEA CASILLA DE ENTRADA Y DEVUELVE LA COLUMNA
         let columna = check.columnaCompleta;
